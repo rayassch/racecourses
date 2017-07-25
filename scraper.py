@@ -4,7 +4,7 @@ import lxml.html
 
 # scrape_table function: gets passed an individual page to scrape
 def scrape_table(root):
-    rows = root.cssselect("table")  # selects all <tr> blocks within <table class="Trolley table">
+    rows = root.cssselect("table") [2]  # selects all <tr> blocks within <table class="Trolley table">
     for row in rows:
         # Set up our data record - we'll need it later
         record = {}
