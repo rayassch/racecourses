@@ -8,7 +8,7 @@ def scrape_table(root):
     for row in rows:
         # Set up our data record - we'll need it later
         record = {}
-        table_cells = row.cssselect("td")
+        table_cells = row.cssselect("p")
         if table_cells: 
             record['Racecourse'] = table_cells[0].text_content()
             record['Address and Phone Number'] = table_cells[1].text_content()
@@ -19,7 +19,7 @@ def scrape_table(root):
             # Print out the data we've gathered
             print record, '------------'
             # Finally, save the record to the datastore - 'Artist' is our unique key
-            #scraperwiki.sqlite.save(["Racecourse"], record)
+            scraperwiki.sqlite.save(["Racecourse"], record)
                             
 # scrape_and_look_for_next_link function: calls the scrape_table
 # function, then hunts for a 'next' link: if one is found, calls itself again
